@@ -10,7 +10,7 @@ html, body {
 
 #root {
     width: 100%;
-    max-width: 1200p+x;
+    max-width: 1200px;
     margin-inline: auto;
     padding-inline: 5rem;
     height: 100%;
