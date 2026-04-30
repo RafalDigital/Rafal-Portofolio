@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: hsl(247, 51%, 58%); /* #6A5DCB */
+    --color-secondary: hsl(228, 8%, 12%); /* #1D1E22 */
+    --color-tertiary: hsl(48, 8%, 88%); /* #E2E1DD */
+}
+
 /* RESET */
 html, body {
     overflow-x: hidden;
@@ -16,4 +22,24 @@ html, body {
     height: 100%;
     min-height: 100dvh;
     overflow-x: hidden;
+}
+
+/* DEFAULT STYLE */
+a {cursor: pointer;}
+
+/* CUSTOM SCROLL */
+::-webkit-scrollbar {
+    width: 1.25rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: .5rem;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  background-clip: content-box;
 }
