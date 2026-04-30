@@ -81,5 +81,9 @@ const RafalPlainLogo = ({ size = 457, ...props }) => (
       transform="scale(2.39894) rotate(-45 -34.567 307.924)"
     />
   </svg>
-)
-export default RafalPlainLogo
+);
+
+
+
+// Export
+export default RafalPlainLogo;

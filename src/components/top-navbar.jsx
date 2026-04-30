@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import RafalPlainLogo from "./svg-element";
+import RafalPlainLogo from "./small-component/logo";
+import Hamburger from "./small-component/hamburger";
 
 export default function TopNavbar() {
     const [displayTime, setDisplayTime] = useState("");
@@ -26,8 +27,11 @@ export default function TopNavbar() {
                 <div id="logo">
                     <RafalPlainLogo size={40}/>
                 </div>
-                <div className="time">
+                {/* <div className="time">
                     <p className="text-tertiary">{displayTime}</p>
+                </div> */}
+                <div className="hamburger">
+                    <Hamburger/>
                 </div>
             </nav>
         </>
