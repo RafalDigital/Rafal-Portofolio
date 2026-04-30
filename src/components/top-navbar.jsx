@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import RafalPlainLogo from "./svg-element";
 
 export default function TopNavbar() {
     const [displayTime, setDisplayTime] = useState("");
@@ -21,12 +22,12 @@ export default function TopNavbar() {
 
     return (
         <>
-            <nav id="top-navbar" className="fixed p-4 top-0 left-0 right-0">
+            <nav id="top-navbar" className="fixed py-2 px-4 top-0 left-0 right-0 flex justify-between items-center bg-secondary">
                 <div id="logo">
-                    <img src="" alt="" />
+                    <RafalPlainLogo size={40}/>
                 </div>
                 <div className="time">
-                    <p>{displayTime}</p>
+                    <p className="text-tertiary">{displayTime}</p>
                 </div>
             </nav>
         </>
