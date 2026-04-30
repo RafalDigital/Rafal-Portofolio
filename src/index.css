@@ -4,6 +4,7 @@
     --color-primary: hsl(247, 51%, 58%); /* #6A5DCB */
     --color-secondary: hsl(228, 8%, 12%); /* #1D1E22 */
     --color-tertiary: hsl(48, 8%, 88%); /* #E2E1DD */
+    --color-background: hsl(150, 5%, 8%); /* #141615 */
 }
 
 /* RESET */
@@ -16,7 +17,7 @@ html, body {
 
 #root {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     margin-inline: auto;
     padding-inline: 5rem;
     height: 100%;

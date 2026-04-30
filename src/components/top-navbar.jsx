@@ -22,7 +22,7 @@ export default function TopNavbar() {
 
     return (
         <>
-            <nav id="top-navbar" className="fixed py-2 px-4 top-0 left-0 right-0 flex justify-between items-center bg-secondary">
+            <nav id="top-navbar" className="fixed py-2 px-4 top-0 left-0 right-0 flex justify-between items-center ">
                 <div id="logo">
                     <RafalPlainLogo size={40}/>
                 </div>
