@@ -23,14 +23,14 @@ export default function TopNavbar() {
 
     return (
         <>
-            <nav id="top-navbar" className="fixed py-2 px-4 top-0 left-0 right-0 flex justify-between items-center ">
+            <nav id="top-navbar" className="fixed z-30 py-2 px-4 top-0 left-0 right-0 flex justify-between items-center ">
                 <div id="logo">
                     <RafalPlainLogo size={40}/>
                 </div>
                 {/* <div className="time">
                     <p className="text-tertiary">{displayTime}</p>
                 </div> */}
-                <div className="hamburger">
+                <div className="hamburger md:hidden">
                     <Hamburger/>
                 </div>
             </nav>

@@ -1,16 +1,16 @@
 const Hamburger = (setIsOpen, isOpen) => {
     // Style dasar untuk bar/garis
-  const genericBar = "h-0.5 w-6 my-0.5 rounded-full bg-black transition ease-in-out duration-300";
+  const genericBar = "h-1 w-6 my-0.5 rounded-full bg-tertiary transition ease-in-out duration-300 rounded-2xl";
   
   return (
       <button
-      className="flex flex-col h-10 w-10 justify-center items-center group"
+      className="flex flex-col h-10 w-10 justify-center items-center group cursor-pointer"
       onClick={() => setIsOpen(!isOpen)}
       >
       <span
         className={`${genericBar} ${
           isOpen
-            ? "rotate-45 translate-y-1.5 opacity-100"
+            ? "rotate-45 translate-y-2 opacity-100"
             : "opacity-100"
         }`}
       />
@@ -22,7 +22,7 @@ const Hamburger = (setIsOpen, isOpen) => {
       <span
         className={`${genericBar} ${
           isOpen
-          ? "-rotate-45 -translate-y-1.5 opacity-100"
+          ? "-rotate-45 -translate-y-2 opacity-100"
             : "opacity-100"
         }`}
       />
