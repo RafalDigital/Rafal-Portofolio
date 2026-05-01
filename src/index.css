@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
 @theme {
     --color-primary: hsl(247, 51%, 58%); /* #6A5DCB */
     --color-secondary: hsl(228, 8%, 12%); /* #1D1E22 */
     --color-tertiary: hsl(48, 8%, 88%); /* #E2E1DD */
     --color-tertiary-200: hsl(48, 8%, 80%); /* #D0CFC9 */
     --color-background: hsl(150, 5%, 8%); /* #141615 */
+
+    /* Font */
+    --font-zain: "Zain", sans-serif;
+    --font-nunito: "Nunito", sans-serif;
 }
 
 /* RESET */
@@ -45,3 +52,59 @@ a {cursor: pointer;}
   border-right: 5px solid rgba(0, 0, 0, 0);
   background-clip: content-box;
 }
+
+/* FONT */
+/* .nunito-<uniquifier> {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.zain-extralight {
+  font-family: "Zain", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.zain-light {
+  font-family: "Zain", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.zain-regular {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zain-bold {
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.zain-extrabold {
+  font-family: "Zain", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.zain-black {
+  font-family: "Zain", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.zain-light-italic {
+  font-family: "Zain", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.zain-regular-italic {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+} */
