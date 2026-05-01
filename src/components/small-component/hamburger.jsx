@@ -6,12 +6,12 @@ const Hamburger = (props) => {
 
   return (
       <button
-      className="flex flex-col h-14 w-14 justify-center items-center group cursor-pointer"
+      className="flex flex-col h-10 w-10 justify-center items-center group cursor-pointer"
       >
       <span
         className={`${genericBar} ${
           isOpen
-            ? "rotate-45 translate-y-2 opacity-100"
+            ? "rotate-45 translate-y-3 opacity-100"
             : "opacity-100"
         }`}
       />
@@ -23,7 +23,7 @@ const Hamburger = (props) => {
       <span
         className={`${genericBar} ${
           isOpen
-          ? "-rotate-45 -translate-y-2 opacity-100"
+          ? "-rotate-45 -translate-y-3 opacity-100"
             : "opacity-100"
         }`}
       />
