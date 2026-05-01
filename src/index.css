@@ -4,6 +4,7 @@
     --color-primary: hsl(247, 51%, 58%); /* #6A5DCB */
     --color-secondary: hsl(228, 8%, 12%); /* #1D1E22 */
     --color-tertiary: hsl(48, 8%, 88%); /* #E2E1DD */
+    --color-tertiary-200: hsl(48, 8%, 80%); /* #D0CFC9 */
     --color-background: hsl(150, 5%, 8%); /* #141615 */
 }
 

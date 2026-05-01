@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RafalPlainLogo from "./small-component/logo";
 import Hamburger from "./small-component/hamburger";
 
-export default function TopNavbar() {
+export default function TopNavbar({ HamburgerOpen, hamburgerClick}) {
     const [displayTime, setDisplayTime] = useState("");
 
     useEffect(() => {
@@ -30,8 +30,8 @@ export default function TopNavbar() {
                 {/* <div className="time">
                     <p className="text-tertiary">{displayTime}</p>
                 </div> */}
-                <div className="hamburger md:hidden">
-                    <Hamburger/>
+                <div className="hamburger md:hidden" onClick={HamburgerOpen}>
+                    <Hamburger isOpen={hamburgerClick}/>
                 </div>
             </nav>
         </>
