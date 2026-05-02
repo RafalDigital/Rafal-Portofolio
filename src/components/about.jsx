@@ -18,7 +18,7 @@ export default function AboutSection() {
                 stagger: 0.02,
                 scrollTrigger: {
                     trigger: textContainer.current,
-                    start: "top 80%",
+                    start: "top 50%",
                     end: "top 20%",
                     scrub: true,
                     toggleActions: "play play reverse reverse",
