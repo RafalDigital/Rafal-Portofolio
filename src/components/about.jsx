@@ -19,7 +19,7 @@ export default function AboutSection() {
                 scrollTrigger: {
                     trigger: textContainer.current,
                     start: "top 40%",
-                    end: "+=100%",
+                    end: "+=120%",
                     scrub: true,
                     toggleActions: "play play reverse reverse",
                     pin: true,
@@ -40,7 +40,7 @@ export default function AboutSection() {
                         </span>
                     ))} */}
                     {aboutText.split(' ').map((char, index) => (
-                        <span className="char mr-[0.3em] inline-block text-xl font-bold font-zain text-tertiary" key={index}>
+                        <span className="char mr-[0.3rem] inline-block text-xl font-bold font-zain text-tertiary" key={index}>
                             {char} 
                         </span>
                     ))}
@@ -49,3 +49,6 @@ export default function AboutSection() {
         </>
     )
 }
+// Masih Lorem ipsum
+// Kasih kondisi jika diliat di desktop dan di mobile
+//
