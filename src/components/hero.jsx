@@ -18,7 +18,7 @@ export default function HeroSection() {
             <div className='flex flex-col justify-center items-center w-full h-full'>
                 <MobileHero/>
             </div>
-            <a href="#" className='p-2 -translate-y-4 rounded-full bg-secondary border border-tertiary/20 text-tertiary active:text-primary hover:text-primary group'><RiArrowDownSLine className='group-hover:translate-y-0.5 transition-all ease-in-out' /></a>
+            <a href="#" className='p-2 -translate-y-10 rounded-full bg-secondary border border-tertiary/20 text-tertiary active:text-primary hover:text-primary group'><RiArrowDownSLine className='group-hover:translate-y-0.5 transition-all ease-in-out' /></a>
         </section>
     );
 }  

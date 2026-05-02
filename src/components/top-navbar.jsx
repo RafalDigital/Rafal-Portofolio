@@ -23,7 +23,7 @@ export default function TopNavbar({ HamburgerOpen, hamburgerClick}) {
 
     return (
         <>
-            <nav id="top-navbar" className="fixed z-30 py-2 px-4 top-0 left-0 right-0 flex justify-between items-center ">
+            <nav id="top-navbar" className="fixed z-30 py-2 px-4 top-0 right-0 left-0 flex justify-between items-center ">
                 <div id="logo">
                     <RafalPlainLogo size={50}/>
                 </div>

@@ -2,6 +2,7 @@ import { useState } from "react"
 import SideNavbar from "./components/side-navbar"
 import TopNavbar from "./components/top-navbar"
 import HeroSection from "./components/hero";
+import AboutSection from "./components/about";
 
 function App() {
     const [hamburgerClick, setHamburgerClick] = useState(false);
@@ -23,6 +24,7 @@ function App() {
             <TopNavbar HamburgerOpen={openMenu} hamburgerClick={hamburgerClick}/>
             <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
             <HeroSection/>
+            <AboutSection/>
         </>
     )
 }
