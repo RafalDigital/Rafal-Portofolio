@@ -21,7 +21,8 @@ export default function AboutSection() {
                     start: "top 80%",
                     end: "top 20%",
                     scrub: true,
-                    toggleActions: "play play reverse reverse"
+                    toggleActions: "play play reverse reverse",
+                    pin: true
                 }
             }
         )
