@@ -32,9 +32,14 @@ export default function AboutSection() {
         <>
             <section className='w-full h-fit py-32 my-8'>
                 <div className='px-1' ref={textContainer}>
-                    {aboutText.split('').map((char, index) => (
+                    {/* {aboutText.split('').map((char, index) => (
                         <span className="char inline-block text-xl font-bold font-zain text-tertiary" key={index}>
                             {char === ' ' ? '\u00A0' : char} 
+                        </span>
+                    ))} */}
+                    {aboutText.split(' ').map((char, index) => (
+                        <span className="char mr-[0.3em] inline-block text-xl font-bold font-zain text-tertiary" key={index}>
+                            {char} 
                         </span>
                     ))}
                 </div>
