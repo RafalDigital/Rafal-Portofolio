@@ -8,7 +8,8 @@
     --color-secondary: hsl(228, 8%, 12%); /* #1D1E22 */
     --color-tertiary: hsl(48, 8%, 88%); /* #E2E1DD */
     --color-tertiary-200: hsl(48, 8%, 80%); /* #D0CFC9 */
-    --color-background: hsl(150, 5%, 8%); /* #141615 */
+    /*--color-background: hsl(150, 5%, 8%);*/ /* #141615 */
+    --color-background: hsl(210, 11%, 4%); /*#08090a*/
 
     /* Font */
     --font-zain: "Zain", sans-serif;
