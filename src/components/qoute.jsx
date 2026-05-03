@@ -14,7 +14,7 @@ export default function QuoteSection() {
                 opacity: 0.3,
             },{
                 opacity: 0.1,
-                scale: 0.8,
+                scale: 1,
                 duration: 0.3,
                 scrollTrigger: {
                     trigger: '.quote',
