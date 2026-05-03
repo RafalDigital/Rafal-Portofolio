@@ -3,6 +3,7 @@ import SideNavbar from "./components/side-navbar"
 import TopNavbar from "./components/top-navbar"
 import HeroSection from "./components/hero";
 import AboutSection from "./components/about";
+import QuoteSection from "./components/qoute";
 
 function App() {
     const [hamburgerClick, setHamburgerClick] = useState(false);
@@ -25,6 +26,8 @@ function App() {
             <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
             <HeroSection/>
             <AboutSection/>
+            <QuoteSection/>
+            {/* <div className="w-full h-96"></div> */}
         </>
     )
 }

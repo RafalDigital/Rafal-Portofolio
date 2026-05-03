@@ -40,7 +40,7 @@ export default function AboutSection() {
                         </span>
                     ))} */}
                     {aboutText.split(' ').map((char, index) => (
-                        <span className="char mr-[0.3rem] inline-block text-xl font-bold font-zain text-tertiary" key={index}>
+                        <span className="char mr-[0.4rem] inline-block text-xl font-bold font-nunito text-tertiary" key={index}>
                             {char} 
                         </span>
                     ))}
