@@ -34,6 +34,25 @@ export default function AboutSection() {
         )
     }, { scope: textContainer })
 
+    useGSAP(()=>{
+        gsap.fromTo(".glow", {
+                opacity: 0
+            },{
+                opacity: 0.2,
+                duration: 0.3,
+                scrollTrigger: {
+                    trigger: '.glow',
+                    start: "top 20%",
+                    end: "+=120%",
+                    // statusbar: true,
+                    scrub: true,
+                    toggleActions: "play play reverse reverse",              
+                }
+            }
+        )
+    }, {scope: textContainer})
+
+
     useEffect(() => {
         const handleWidth = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -45,7 +64,8 @@ export default function AboutSection() {
     return (
         <>
             <section className='w-full h-fit py-32 flex justify-center items-center relative'>
-                <div className='my-8 px-8 w-full h-full' ref={textContainer}>
+                <div className='my-8 px-8 w-full h-full relative' ref={textContainer}>
+                <div class="absolute inset-0 z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"><div class="glow absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary blur-[100px]"></div></div>
                     {isMobile ? (     
                         aboutTextMobile.split(' ').map((char, index) => (
                             <span className="char mr-[0.4rem] inline-block text-lg font-bold font-nunito text-tertiary" key={index}>
@@ -60,6 +80,7 @@ export default function AboutSection() {
                         ))
                     )}
                 </div>
+
             </section>
         </>
     )
