@@ -48,7 +48,7 @@ export default function QuoteSection() {
                 <h1 className="quote select-none text-9xl text-tertiary/40 font-zain font-extrabold absolute top-1/2 -translate-y-1/2">QUOTE</h1>
                 <RiDoubleQuotesR  className='quotes text-tertiary text-3xl mt-32' size={50}/>
                 <div className='quotes px-6 text-center'>
-                    <h1 className='text-tertiary text-2xl font-nunito font-bold'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, dolore dolor rerum voluptas</h1>
+                    <h1 className='text-tertiary text-2xl font-nunito font-bold'>The obstacle isn't a wall, it's a ramp. Hit it at full speed and fly over.</h1>
                     <p className='text-md text-tertiary mt-4 font-nunito font-medium'>— Rafif —</p>
                 </div>
             </section>
