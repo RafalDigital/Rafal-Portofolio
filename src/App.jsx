@@ -1,33 +1,34 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Projects from "./pages/Projects"
 import { useState } from "react"
-import SideNavbar from "./components/side-navbar"
-import TopNavbar from "./components/top-navbar"
-import HeroSection from "./components/hero";
-import AboutSection from "./components/about";
-import QuoteSection from "./components/qoute";
 
 function App() {
     const [hamburgerClick, setHamburgerClick] = useState(false);
-
+        
     const openMenu = () => {
         setHamburgerClick(true)
         console.log(hamburgerClick)
     };
-    
+            
     const closeMenu = () => {
         setHamburgerClick(false)
         console.log(hamburgerClick)
-
+        
     };
-
+        
     console.log(hamburgerClick)
+
     return (
         <>
-            <TopNavbar HamburgerOpen={openMenu} hamburgerClick={hamburgerClick}/>
-            <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
-            <HeroSection/>
-            <AboutSection/>
-            <QuoteSection/>
-            {/* <div className="w-full h-96"></div> */}
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home openMenu={openMenu} hamburgerClick={hamburgerClick} closeMenu={closeMenu}/>} />
+                    <Route path="/about" element={<About openMenu={openMenu} hamburgerClick={hamburgerClick} closeMenu={closeMenu}/>} />
+                    <Route path="/projects" element={<Projects openMenu={openMenu} hamburgerClick={hamburgerClick} closeMenu={closeMenu}/>} />
+                </Routes>
+            </Router>
         </>
     )
 }

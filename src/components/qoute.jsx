@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useRef } from 'react';
 import { RiDoubleQuotesR } from '@remixicon/react';
 
-export default function QuoteSection() {
+export default function KuoteSection() {
     gsap.registerPlugin(ScrollTrigger);
     const quoteSection = useRef();
 

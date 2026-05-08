@@ -1,6 +1,7 @@
 import Hamburger from "./small-component/hamburger";
 import RafalPlainLogo from "./small-component/logo";
 import { RiHomeFill, RiUser3Fill, RiCodeFill, RiInstagramFill, RiGithubFill, RiLinkedinFill, RiSunFill, RiMoonFill } from '@remixicon/react';
+import { useNavigate } from "react-router-dom";
 
 export default function SideNavbar({ HamburgerClose, hamburgerClick}) {
     return (
@@ -13,9 +14,9 @@ export default function SideNavbar({ HamburgerClose, hamburgerClick}) {
                 </div>
                 
                 <div className="side-link my-4 px-4 flex flex-col gap-1.5">
-                    <SideLink content={'Home'} icon={RiHomeFill}/>
-                    <SideLink content={'About'} icon={RiUser3Fill}/>
-                    <SideLink content={'Project'} icon={RiCodeFill}/>
+                    <SideLink link='/' content={'Home'} icon={RiHomeFill}/>
+                    <SideLink link='/about' content={'About'} icon={RiUser3Fill}/>
+                    <SideLink link='/projects' content={'Project'} icon={RiCodeFill}/>
                 </div>
                 {/* <div className=" px-4">
                     
@@ -24,10 +25,10 @@ export default function SideNavbar({ HamburgerClose, hamburgerClick}) {
                 <div className="mt-auto p-4 flex flex-col gap-4">
                     <ToggleLightMode2/>
                     <div className="px-2 py-2 rounded-2xl flex justify-between gap-2 bg-tertiary">
-                        <SideMiniLink icon={RiInstagramFill}/>
-                        <SideMiniLink icon={RiGithubFill}/>
-                        <SideMiniLink icon={RiLinkedinFill}/>
-                        <SideMiniLink icon={RiGithubFill}/>
+                        <SideMiniLink link="https://www.instagram.com/rafaldigital/" icon={RiInstagramFill}/>
+                        <SideMiniLink link="https://github.com/RafalDigital" icon={RiGithubFill}/>
+                        <SideMiniLink link="https://www.linkedin.com/in/rafif-d-468297372/" icon={RiLinkedinFill}/>
+                        <SideMiniLink link="https://github.com/RafalDigital" icon={RiGithubFill}/>
                     </div>
                 </div>
             </aside>
@@ -39,16 +40,17 @@ export default function SideNavbar({ HamburgerClose, hamburgerClick}) {
     )
 }
 
-function SideLink({ content, icon: IconComponent, link = "#" }) {
+function SideLink({ content, icon: IconComponent, link }) {
+    const navigate = useNavigate();
     return (
-        <a href={link} className="flex gap-2 text-white items-center active:bg-tertiary active:text-primary hover:bg-tertiary hover:text-secondary rounded-xl px-2.5 py-2.5">
+        <a href={`/${link}`} onClick={(e) => {e.preventDefault(); navigate(link);}} className="flex gap-2 text-white items-center active:bg-tertiary active:text-primary hover:bg-tertiary hover:text-secondary rounded-xl px-2.5 py-2.5">
             <IconComponent size={20}/>
             <span>{content}</span>
         </a>
     );
 }
 
-function SideMiniLink({ link = '#', icon: IconComponent }) {
+function SideMiniLink({ link = '/', icon: IconComponent }) {
     return (
         <a href={link} className="flex w-fit h-fit gap-2 items-center active:text-primary hover:text-primary text-secondary rounded-lg px-2 py-2">
             <IconComponent size={20}/>
