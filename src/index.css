@@ -39,7 +39,8 @@ a {cursor: pointer;}
 
 /* CUSTOM SCROLL */
 ::-webkit-scrollbar {
-    width: 1.25rem;
+    /* width: 1.25rem; */
+    display: none;
 }
 
 ::-webkit-scrollbar-track {
