@@ -3,14 +3,34 @@ import SideNavbar from "../components/side-navbar";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { RiInstagramFill, RiGithubFill, RiLinkedinFill, RiYoutubeFill, RiHtml5Fill, RiJavascriptFill, RiCss3Fill, RiReactjsFill, RiTailwindCssFill } from '@remixicon/react';
+import { useState } from "react";
+import { useEffect } from "react";
+import HelloWorld from "../components/small-component/hello-world-svg";
 
 export default function About({ openMenu, hamburgerClick, closeMenu}) {
+    const [isScrolled, setIsScrolled] = useState(false);
+    useEffect(() => {
+        function handleScroll() {
+            if (window.scrollY > 0) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    },[])
+
     return (
         <>
             <TopNavbar HamburgerOpen={openMenu} hamburgerClick={hamburgerClick}/>
-            <div className="fixed top-0 right-0 left-0 h-16 w-full z-30 backdrop-blur-sm"></div>
+            <div className={`${isScrolled?'opacity-100':'opacity-0'} fixed top-0 right-0 left-0 h-16 w-full z-30 backdrop-blur-sm`}></div>
             <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
-            <div className="pt-24 pb-6 px-6 w-full h-fit">
+            <div className="absolute z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_90%,transparent_110%)] pointer-events-none"></div>
+                <div class="absolute inset-0 z-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#08090a_60%,#63e_100%)]"></div>
+            <div className="pt-24 pb-6 px-6 w-full h-fit relative z-20">
                 <TopAbout/>
                 <div className="w-full h-fit grid grid-rows-2 grid-flow-col auto-cols-fr gap-4 my-4">
                     <Link logo={RiInstagramFill} link={'#'} col={'#DD2A7B'}/>
@@ -32,7 +52,7 @@ function TopAbout() {
             whileTap={{ scale: 0.95, y: 1}}
             transition={{type: 'spring', stiffness: 500}}
             className="w-full h-fit p-4 bg-secondary border border-tertiary/20 rounded-lg text-tertiary">
-                
+                <HelloWorld/>
         </motion.div>
     )
 }
@@ -90,3 +110,5 @@ function Link({logo: Icon, link, col}) {
         </motion.a>
     )
 }
+
+// Tinggal TopAbout dan tambahan pengalaman

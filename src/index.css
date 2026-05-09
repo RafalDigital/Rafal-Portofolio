@@ -55,58 +55,62 @@ a {cursor: pointer;}
   background-clip: content-box;
 }
 
-/* FONT */
-/* .nunito-<uniquifier> {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+/* Container agar SVG responsif di semua layar */
+.svg-container {
+  width: 100%;
+  max-width: 600px; /* Batas maksimal di desktop agar tidak terlalu raksasa */
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.zain-extralight {
-  font-family: "Zain", sans-serif;
-  font-weight: 200;
-  font-style: normal;
+.svg-drawing {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.zain-light {
-  font-family: "Zain", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+.text-animated {
+  /* Pengaturan Font */
+  font-size: 100px;
+  letter-spacing: 8px;
+
+  /* State Awal: Hanya garis, isian transparan */
+  fill: rgba(106, 93, 203, 0);
+  stroke: #E2E1DD; 
+  stroke-width: 2px;
+  
+  /* Animasi Drawing */
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawAnimation 4s cubic-bezier(.64,.32,.75,.97) forwards;
 }
 
-.zain-regular {
-  font-family: "Zain", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+@keyframes drawAnimation {
+  0% {
+    stroke-dashoffset: 1000;
+    fill: rgba(106, 93, 203, 0);
+    filter: drop-shadow(0px 0px 4px rgba(106, 93, 203, 0));
+  }
+  70% {
+    /* Selesai menggambar garis */
+    stroke-dashoffset: 0;
+    fill: rgba(106, 93, 203, 0);
+    filter: drop-shadow(0px 0px 4px rgba(106, 93, 203, 0));
+    stroke: #E2E1DD;
+  }
+  100% {
+    /* Munculkan warna isi dan hilangkan garis tepi */
+    stroke-dashoffset: 0;
+    fill: rgba(106, 93, 203, 1);
+    stroke: transparent;
+    filter: drop-shadow(0px 0px 4px rgba(106, 93, 203, 0.4));
+  }
 }
 
-.zain-bold {
-  font-family: "Zain", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+/* Responsif khusus layar HP kecil */
+@media (max-width: 480px) {
+  .text-animated {
+    font-size: 60px; /* Kecilkan font di HP */
+    letter-spacing: 4px;
+  }
 }
-
-.zain-extrabold {
-  font-family: "Zain", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.zain-black {
-  font-family: "Zain", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.zain-light-italic {
-  font-family: "Zain", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.zain-regular-italic {
-  font-family: "Zain", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-} */
