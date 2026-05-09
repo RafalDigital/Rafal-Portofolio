@@ -1,7 +1,8 @@
 import TopNavbar from "../components/top-navbar";
 import SideNavbar from "../components/side-navbar";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { RiInstagramFill, RiGithubFill, RiLinkedinFill, RiYoutubeFill} from '@remixicon/react';
+import { RiInstagramFill, RiGithubFill, RiLinkedinFill, RiYoutubeFill, RiHtml5Fill, RiJavascriptFill, RiCss3Fill, RiReactjsFill, RiTailwindCssFill } from '@remixicon/react';
 
 export default function About({ openMenu, hamburgerClick, closeMenu}) {
     return (
@@ -9,7 +10,7 @@ export default function About({ openMenu, hamburgerClick, closeMenu}) {
             <TopNavbar HamburgerOpen={openMenu} hamburgerClick={hamburgerClick}/>
             <div className="fixed top-0 right-0 left-0 h-16 w-full z-30 backdrop-blur-sm"></div>
             <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
-            <div className="pt-24 px-6 w-full h-20">
+            <div className="pt-24 pb-6 px-6 w-full h-fit">
                 <TopAbout/>
                 <div className="w-full h-fit grid grid-rows-2 grid-flow-col auto-cols-fr gap-4 my-4">
                     <Link logo={RiInstagramFill} link={'#'} col={'#DD2A7B'}/>
@@ -18,6 +19,7 @@ export default function About({ openMenu, hamburgerClick, closeMenu}) {
                     <Link logo={RiLinkedinFill} link={'#'} col={'#0077B5'}/>
                 </div>
                 <FullAbout/>
+                <SkillAbout/>
             </div>
         </>
     )
@@ -45,6 +47,31 @@ function FullAbout() {
             className="w-full h-fit p-4 bg-secondary border border-tertiary/20 rounded-lg text-tertiary select-none">
             <span className="text-md font-medium font-nunito">{about}</span>
         </motion.div>
+    )
+}
+
+function SkillAbout() {
+    return(
+        <motion.div
+            whileHover={{scale: 1.02, y: -2}}
+            whileTap={{ scale: 0.95, y: 1}}
+            transition={{type: 'spring', stiffness: 500}}
+            className="w-full h-fit px-4 py-6 my-4 bg-secondary border border-tertiary/20 rounded-lg text-tertiary grid grid-cols-4 gap-6">
+            <Skill logo={RiHtml5Fill}/>
+            <Skill logo={RiCss3Fill}/>
+            <Skill logo={RiJavascriptFill}/>
+            <Skill logo={RiReactjsFill}/>
+            <Skill logo={RiTailwindCssFill}/>
+        </motion.div>
+    )
+}
+
+// eslint-disable-next-line no-unused-vars
+function Skill({logo: Icon}) {
+    return(
+        <div className="w-full h-full flex justify-center items-center text-tertiary/40 hover:text-tertiary">
+            <Icon size={40}/>
+        </div>
     )
 }
 
