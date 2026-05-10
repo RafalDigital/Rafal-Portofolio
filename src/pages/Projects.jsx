@@ -65,14 +65,14 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
         {/* {selectedProject && ( */}
             <div 
                 key='nokey' 
-                className={`fixed overflow-x-hidden left-0 right-0 bottom-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl transform transition-transform duration-500 ease-in-out ${
+                className={`fixed overflow-x-hidden left-0 right-0 bottom-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary  rounded-tl-4xl rounded-tr-4xl transform transition-transform duration-500 ease-in-out ${
                     selectedProject ? 'translate-y-0' : 'translate-y-full'
                 }`}>
-                <div className="w-full h-fit pt-6 flex flex-col bg-option1">
+                <div className="w-full h-fit pt-6 flex flex-col rounded-tl-4xl rounded-tr-4xl border-t border-l border-r border-tertiary/40 bg-option1">
                     <div className="flex gap-4 px-4 pb-6 items-center justify-between">
                         {/* KIRIM SETSELECTEDPROJECT KE CLOSE DAN SELECTEDPROJECT KE H1 */}
                         <Close onClose={closeFolderProject}/>
-                        <h1 className="text-2xl font-nunito text-center text-tertiary">{displayData?.name}</h1>
+                        <h1 className="text-xl font-nunito text-center text-tertiary">{displayData?.name}</h1>
                         <Search/>
                     </div>
                     <span className="h-[1px] w-full bg-tertiary/40 rounded-2xl"></span>
@@ -98,7 +98,7 @@ function GroupProject({Header, icon: Icon, onOpen}) {
         <div className="w-full h-fit p-4 bg-secondary border border-tertiary/20 rounded-lg text-tertiary">
             {/* <img src={mockup} alt="" /> */}
             <div className="mb-4 flex justify-between items-center">
-                <h1 className="font-zain text-2xl m-0">{Header}</h1>
+                <h1 className="font-zain text-xl m-0">{Header}</h1>
                 <Icon/>
             </div>
             <motion.button
@@ -130,8 +130,8 @@ function Project({ image = mockup, title = 'Template', desc = 'A template', stac
 
             </div>
             <div className="w-full h-fit flex justify-between gap-3 font-nunito font-medium text-sm">
-                <button className="w-1/2 bg-tertiary/40 py-1 rounded-lg border border-tertiary/20 cursor-pointer">View Live</button>
-                <button className="w-1/2 flex justify-center items-center bg-option1 py-1.5 rounded-lg border border-tertiary/40 gap-1 cursor-pointer">
+                <button className="w-1/2 bg-tertiary/40 py-1 rounded-lg border border-tertiary/20 cursor-pointer hover:bg-tertiary/5 transition-all duration-500 ease-in-out">View Live</button>
+                <button className="w-1/2 flex justify-center items-center hover:bg-tertiary/20 bg-option1 py-1.5 rounded-lg border border-tertiary/40 gap-1 cursor-pointer transition-all duration-500 ease-in-out">
                     <RiGithubFill size={20}/>
                     Github
                 </button>
@@ -150,10 +150,10 @@ function Stack({stackName}) {
 
 // Untuk Bagian Lihat Group Project
 function Close({onClose}) {
-    const genericBar = "h-1 w-8 my-1 rounded-full bg-tertiary transition ease-in-out duration-300 rounded-2xl group-hover:bg-tertiary/40 transition-all ease group";
+    const genericBar = "h-0.5 w-6 my-1 rounded-full bg-tertiary transition ease-in-out duration-300 rounded-2xl group-hover:bg-tertiary/40 transition-all ease group";
     return(
-        <button onClick={onClose} className="flex flex-col h-8 w-8 justify-center items-center group cursor-pointer  ">
-            <span className={`${genericBar} rotate-45 translate-y-2`}></span>
+        <button onClick={onClose} className="flex flex-col h-6 w-8 justify-center items-center group cursor-pointer  ">
+            <span className={`${genericBar} rotate-45 translate-y-1.5`}></span>
             <span className={`${genericBar} -rotate-45 -translate-y-1`}></span>
         </button>
     )
@@ -162,7 +162,7 @@ function Close({onClose}) {
 function Search() {
     return(
         <button className="h-8 w-8 justify-center items-center group cursor-pointer text-tertiary hover:text-tertiary/40 transition-all ease">
-            <RiSearchLine size={30}/>
+            <RiSearchLine size={23}/>
         </button>
     )
 }
