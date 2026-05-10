@@ -68,7 +68,7 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
                 initial={{ y: "100%" }} 
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
-                transition={{ type: "", damping: 25, stiffness: 200 }}
+                transition={{ type: "Tween"}}
                 willChange={true}
                 className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
                 <div className="w-full h-fit pt-6 flex flex-col bg-option1">
