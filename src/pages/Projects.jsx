@@ -5,9 +5,49 @@ import mockup from "../assets/webp/mockup.webp"
 import { RiInstagramFill, RiSearchLine, RiGithubFill } from '@remixicon/react';
 import { motion } from "motion/react";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
     const [selectedProject, setSelectedProject] = useState(null)
+    const [data, setData] = useState([]);
+
+    const ICON_MAP = {
+        RiInstagramFill,
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("/data/data.json");
+                const dataResponse = await response.json();
+                setData(dataResponse.ProjectsFolder)
+            } catch (error) {
+                console.log("Gagal Melakukan Fetching Data : ", error)
+            }
+        }
+        
+        fetchData()
+    }, [])
+    
+    console.log(data)
+    if (data.length > 0) {
+    console.log(data[0].name)
+    console.log(data[0].id)
+    console.log(data[0].icon)
+    console.log(data[0].projects)
+    }
+
+    useEffect(() => {
+        console.log(selectedProject)
+    }, [selectedProject])
+
+    function openFolderProject(project) {
+        setSelectedProject(project);
+    }
+
+    function closeFolderProject() {
+        setSelectedProject(null);
+    }
 
     return (
         <>
@@ -15,36 +55,39 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
             <div className="fixed top-0 right-0 left-0 h-16 w-full z-30 backdrop-blur-sm"></div>
             <SideNavbar HamburgerClose={closeMenu} hamburgerClick={hamburgerClick}/>
             <div className="pt-24 pb-6 px-6 w-full h-fit flex flex-col gap-4">
-                {/* DI MAP */}
-                <GroupProject Header={'Project Website'} icon={RiInstagramFill}/>
-                <GroupProject Header={'Poster Designs'} icon={RiInstagramFill}/>
-                <GroupProject Header={'N8N'} icon={RiInstagramFill}/>
-                <GroupProject Header={'Python Projects'} icon={RiInstagramFill}/>
+                {data.map((project, index) => (
+                    <GroupProject key={index} Header={project.name} icon={ICON_MAP[project.icon]} onOpen={() => {openFolderProject(project)}}/>
+                ))}
             </div>
 
-            <div className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
+        {selectedProject && (
+            <>
+            <div key={selectedProject.id} className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
                 <div className="w-full h-fit pt-6 flex flex-col bg-option1">
                     <div className="flex gap-4 px-4 pb-6 items-center justify-between">
                         {/* KIRIM SETSELECTEDPROJECT KE CLOSE DAN SELECTEDPROJECT KE H1 */}
-                        <Close/>
-                        <h1 className="text-2xl font-nunito text-center text-tertiary">Project Website</h1>
+                        <Close onClose={closeFolderProject}/>
+                        <h1 className="text-2xl font-nunito text-center text-tertiary">{selectedProject.name}</h1>
                         <Search/>
                     </div>
                     <span className="h-[1px] w-full bg-tertiary/40 rounded-2xl"></span>
                 </div>
 
                 <div className="flex w-full h-full flex-col gap-4 px-4">
-                    {/* DI MAP */}
-                    <Project/>
+                    {selectedProject.projects.map((project, index) => (
+                        <Project key={index} title={project.name} desc={project.desc}/>
+                    ))}
                 </div>
 
             </div>
             <div className="fixed z-40 inset-0 w-full h-dvh bg-secondary/40"></div>
+            </>
+        )}
         </>
     )
 }
 
-function GroupProject({Header, icon: Icon}) {
+function GroupProject({Header, icon: Icon, onOpen}) {
     return (
         <div className="w-full h-fit p-4 bg-secondary border border-tertiary/20 rounded-lg text-tertiary">
             {/* <img src={mockup} alt="" /> */}
@@ -56,6 +99,7 @@ function GroupProject({Header, icon: Icon}) {
                 whileHover={{scale: 1.02, y: -1}}
                 whileTap={{ scale: 0.95, y: 1}}
                 transition={{type: 'spring', stiffness: 300}} 
+                onClick={onOpen}
                 className="w-full h-fit py-1 rounded-md bg-primary hover:bg-transparent transition-all ease border border-tertiary/20 cursor-pointer">
                     Open
                 </motion.button>
@@ -74,8 +118,8 @@ function Project({ image = mockup, title = 'Template', desc = 'A template', stac
                 </div>
             </div>
             <div className="my-4 flex gap-2">
-                {stacks.map((s) => (
-                    <Stack stackName={s}/>
+                {stacks.map((s, index) => (
+                    <Stack key={index} stackName={s}/>
                 ))}
 
             </div>
@@ -99,10 +143,10 @@ function Stack({stackName}) {
 }
 
 // Untuk Bagian Lihat Group Project
-function Close() {
+function Close({onClose}) {
     const genericBar = "h-1 w-8 my-1 rounded-full bg-tertiary transition ease-in-out duration-300 rounded-2xl group-hover:bg-tertiary/40 transition-all ease group";
     return(
-        <button className="flex flex-col h-8 w-8 justify-center items-center group cursor-pointer  ">
+        <button onClick={onClose} className="flex flex-col h-8 w-8 justify-center items-center group cursor-pointer  ">
             <span className={`${genericBar} rotate-45 translate-y-2`}></span>
             <span className={`${genericBar} -rotate-45 -translate-y-1`}></span>
         </button>

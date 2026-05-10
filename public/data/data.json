@@ -1,0 +1,28 @@
+{
+  "ProjectsFolder": [
+    {
+      "id": "f1",
+      "name": "Website Projects",
+      "icon": "RiInstagramFill",
+      "projects": [
+        {
+          "id": 1,
+          "name": "Focus Notes",
+          "desc": "contoh deskripsi"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "name": "Python Project",
+      "icon": "RiInstagramFill",
+      "projects": [
+        {
+          "id": 1,
+          "name": "Hidoep Jokowee",
+          "desc": "contoh deskripsi"
+        }
+      ]
+    }
+  ]
+}
