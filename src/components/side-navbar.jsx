@@ -43,7 +43,7 @@ export default function SideNavbar({ HamburgerClose, hamburgerClick}) {
 function SideLink({ content, icon: IconComponent, link }) {
     const navigate = useNavigate();
     return (
-        <a href={`/${link}`} onClick={(e) => {e.preventDefault(); navigate(link);}} className="flex gap-2 text-white items-center active:bg-tertiary active:text-primary hover:bg-tertiary hover:text-secondary rounded-xl px-2.5 py-2.5">
+        <a target="_blank" href={`/${link}`} onClick={(e) => {e.preventDefault(); navigate(link);}} className="flex gap-2 text-white items-center active:bg-tertiary active:text-primary hover:bg-tertiary hover:text-secondary rounded-xl px-2.5 py-2.5">
             <IconComponent size={20}/>
             <span>{content}</span>
         </a>

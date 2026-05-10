@@ -8,19 +8,11 @@
         {
           "id": 1,
           "name": "Focus Notes",
-          "desc": "contoh deskripsi"
-        }
-      ]
-    },
-    {
-      "id": "f2",
-      "name": "Python Project",
-      "icon": "RiInstagramFill",
-      "projects": [
-        {
-          "id": 1,
-          "name": "Hidoep Jokowee",
-          "desc": "contoh deskripsi"
+          "desc": "contoh deskripsi",
+          "image": "/project-images/folder-1/mockup.webp",
+          "stacks" : ["HTML","REACT JS", "TAILWIND CSS"],
+          "visit": "https://f-notebooks.vercel.app/",
+          "github": "https://github.com/RafalDigital/Focus-Note"
         }
       ]
     }

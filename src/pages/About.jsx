@@ -33,10 +33,10 @@ export default function About({ openMenu, hamburgerClick, closeMenu}) {
             <div className="pt-24 pb-6 px-6 w-full h-fit relative z-20">
                 <TopAbout/>
                 <div className="w-full h-fit grid grid-rows-2 grid-flow-col auto-cols-fr gap-4 my-4">
-                    <Link logo={RiInstagramFill} link={'#'} col={'#DD2A7B'}/>
-                    <Link logo={RiGithubFill} link={'#'} col={'#24292e'}/>
-                    <Link logo={RiYoutubeFill} link={'#'} col={'#cc181e'}/>
-                    <Link logo={RiLinkedinFill} link={'#'} col={'#0077B5'}/>
+                    <Link logo={RiInstagramFill} link={'https://www.instagram.com/rafaldigital/'} col={'#DD2A7B'}/>
+                    <Link logo={RiGithubFill} link={'https://github.com/RafalDigital'} col={'#24292e'}/>
+                    <Link logo={RiYoutubeFill} link={'https://www.youtube.com/@RafalDigitall'} col={'#cc181e'}/>
+                    <Link logo={RiLinkedinFill} link={'https://www.linkedin.com/in/rafif-d-468297372/'} col={'#0077B5'}/>
                 </div>
                 <FullAbout/>
                 <SkillAbout/>

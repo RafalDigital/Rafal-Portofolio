@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import TopNavbar from "../components/top-navbar";
 import SideNavbar from "../components/side-navbar";
-import mockup from "../assets/webp/mockup.webp"
 import { RiInstagramFill, RiSearchLine, RiGithubFill } from '@remixicon/react';
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
@@ -80,7 +79,7 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
 
                 <div className="flex w-full h-full flex-col gap-4 px-4">
                     {displayData?.projects.map((project, index) => (
-                        <Project key={index} title={project.name} desc={project.desc}/>
+                        <Project key={index} title={project.name} desc={project.desc} image={project.image} stacks={project.stacks} visit={project.visit} github={project.github}/>
                     ))}
                 </div>
 
@@ -113,7 +112,7 @@ function GroupProject({Header, icon: Icon, onOpen}) {
     )
 }
 
-function Project({ image = mockup, title = 'Template', desc = 'A template', stacks = ['HTML', 'JS', 'CSS']}) {
+function Project({ image, title = 'Template', desc = 'A template', stacks = ['HTML', 'JS', 'CSS'], visit, github}) {
     return(
         <div className="w-full h-fit p-4 bg-background border border-tertiary/20 rounded-xl text-tertiary">
             <div className="w-full h-fit flex justify-between gap-4">
@@ -130,11 +129,26 @@ function Project({ image = mockup, title = 'Template', desc = 'A template', stac
 
             </div>
             <div className="w-full h-fit flex justify-between gap-3 font-nunito font-medium text-sm">
-                <button className="w-1/2 bg-tertiary/40 py-1 rounded-lg border border-tertiary/20 cursor-pointer hover:bg-tertiary/5 transition-all duration-500 ease-in-out">View Live</button>
-                <button className="w-1/2 flex justify-center items-center hover:bg-tertiary/20 bg-option1 py-1.5 rounded-lg border border-tertiary/40 gap-1 cursor-pointer transition-all duration-500 ease-in-out">
-                    <RiGithubFill size={20}/>
-                    Github
-                </button>
+                <motion.a
+                    whileHover={{scale: 1.02, y: -1}}
+                    whileTap={{ scale: 0.95, y: 1}}
+                    transition={{type: 'spring', stiffness: 300}} 
+                    target="_blank"
+                    href={visit}
+                    className="w-1/2 bg-tertiary/40 py-1 rounded-lg border border-tertiary/20 cursor-pointer  active:bg-tertiary/5 transition-all duration-500 ease-in-out flex justify-center items-center">
+                    View Live
+                </motion.a>
+
+                <motion.a 
+                    whileHover={{scale: 1.02, y: -1}}
+                    whileTap={{ scale: 0.95, y: 1}}
+                    transition={{type: 'spring', stiffness: 300}}
+                    target="_blank"
+                    href={github}
+                    className="w-1/2 flex justify-center items-center active:bg-tertiary/20 bg-option1 py-1.5 rounded-lg border border-tertiary/40 gap-1 cursor-pointer transition-all duration-500 ease-in-out">
+                <RiGithubFill size={20}/>
+                Github
+                </motion.a>
             </div>
         </div>
     )
