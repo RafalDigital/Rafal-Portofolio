@@ -9,6 +9,7 @@ import { useEffect } from "react";
 
 export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
     const [selectedProject, setSelectedProject] = useState(null)
+    const [displayData, setDisplayData] = useState(null);
     const [data, setData] = useState([]);
 
     const ICON_MAP = {
@@ -43,6 +44,7 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
 
     function openFolderProject(project) {
         setSelectedProject(project);
+        setDisplayData(project);
     }
 
     function closeFolderProject() {
@@ -60,44 +62,33 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
                 ))}
             </div>
 
-    <AnimatePresence>
-        {selectedProject && (
-            <>
-            <motion.div 
-                key={selectedProject.id} 
-                initial={{ y: "100%" }} 
-                animate={{ y: 0 }}
-                exit={{ y: "100%" }}
-                transition={{ type: "Tween"}}
-                willChange={true}
-                className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
+        {/* {selectedProject && ( */}
+            <div 
+                key='nokey' 
+                className={`fixed overflow-x-hidden left-0 right-0 bottom-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl transform transition-transform duration-500 ease-in-out ${
+                    selectedProject ? 'translate-y-0' : 'translate-y-full'
+                }`}>
                 <div className="w-full h-fit pt-6 flex flex-col bg-option1">
                     <div className="flex gap-4 px-4 pb-6 items-center justify-between">
                         {/* KIRIM SETSELECTEDPROJECT KE CLOSE DAN SELECTEDPROJECT KE H1 */}
                         <Close onClose={closeFolderProject}/>
-                        <h1 className="text-2xl font-nunito text-center text-tertiary">{selectedProject.name}</h1>
+                        <h1 className="text-2xl font-nunito text-center text-tertiary">{displayData?.name}</h1>
                         <Search/>
                     </div>
                     <span className="h-[1px] w-full bg-tertiary/40 rounded-2xl"></span>
                 </div>
 
                 <div className="flex w-full h-full flex-col gap-4 px-4">
-                    {selectedProject.projects.map((project, index) => (
+                    {displayData?.projects.map((project, index) => (
                         <Project key={index} title={project.name} desc={project.desc}/>
                     ))}
                 </div>
 
-            </motion.div>
-            <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                willChange={true}
-                className="fixed z-40 inset-0 w-full h-dvh bg-secondary/40">
-            </motion.div>
-            </>
-        )}
-    </AnimatePresence>
+            </div>
+            <div 
+                className={`fixed z-40 inset-0 w-full h-dvh bg-secondary/40 transition-all duration-500 ease-in-out ${selectedProject ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            </div>
+        {/* )} */}
         </>
     )
 }
