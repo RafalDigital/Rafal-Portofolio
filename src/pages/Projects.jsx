@@ -3,7 +3,7 @@ import TopNavbar from "../components/top-navbar";
 import SideNavbar from "../components/side-navbar";
 import mockup from "../assets/webp/mockup.webp"
 import { RiInstagramFill, RiSearchLine, RiGithubFill } from '@remixicon/react';
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -60,9 +60,16 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
                 ))}
             </div>
 
+    <AnimatePresence>
         {selectedProject && (
             <>
-            <div key={selectedProject.id} className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
+            <motion.div 
+                key={selectedProject.id} 
+                initial={{ y: "100%" }} 
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed overflow-x-hidden inset-be-0 w-full h-[95dvh] right-0 z-50 pb-4 flex flex-col gap-8 bg-secondary border border-tertiary/40 rounded-tl-4xl rounded-tr-4xl">
                 <div className="w-full h-fit pt-6 flex flex-col bg-option1">
                     <div className="flex gap-4 px-4 pb-6 items-center justify-between">
                         {/* KIRIM SETSELECTEDPROJECT KE CLOSE DAN SELECTEDPROJECT KE H1 */}
@@ -79,10 +86,16 @@ export default function Projects({ openMenu, hamburgerClick, closeMenu}) {
                     ))}
                 </div>
 
-            </div>
-            <div className="fixed z-40 inset-0 w-full h-dvh bg-secondary/40"></div>
+            </motion.div>
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed z-40 inset-0 w-full h-dvh bg-secondary/40">
+            </motion.div>
             </>
         )}
+    </AnimatePresence>
         </>
     )
 }
