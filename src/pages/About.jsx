@@ -100,6 +100,7 @@ function Link({logo: Icon, link, col}) {
     return (
         <motion.a
             href={link}
+            target="_blank"
             whileHover={{scale: 1.02, y: -2}}
             whileTap={{ scale: 0.95, y: 1}}
             transition={{type: 'spring', stiffness: 500}}

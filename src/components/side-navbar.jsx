@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Hamburger from "./small-component/hamburger";
 import RafalPlainLogo from "./small-component/logo";
 import { RiHomeFill, RiUser3Fill, RiCodeFill, RiInstagramFill, RiGithubFill, RiLinkedinFill, RiSunFill, RiMoonFill } from '@remixicon/react';
@@ -52,7 +53,7 @@ function SideLink({ content, icon: IconComponent, link }) {
 
 function SideMiniLink({ link = '/', icon: IconComponent }) {
     return (
-        <a href={link} className="flex w-fit h-fit gap-2 items-center active:text-primary hover:text-primary text-secondary rounded-lg px-2 py-2">
+        <a href={link} target="_blank" className="flex w-fit h-fit gap-2 items-center active:text-primary hover:text-primary text-secondary rounded-lg px-2 py-2">
             <IconComponent size={20}/>
         </a>
     );
